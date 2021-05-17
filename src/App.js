@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import GoogleLogin from './components/google'
+import NaverLogin from './components/naver'
+import KakaoLogin from './components/kakao'
 
 function App() {
+  const onSuccessHandler = res => {
+    console.log(res)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GoogleLogin
+        success={onSuccessHandler}
+        fail={res => console.log(res)}
+      />
+      <NaverLogin
+        success={onSuccessHandler}
+        fail={res => console.log(res)}
+      />
+      <KakaoLogin
+        success={onSuccessHandler}
+        fail={res => console.log(res)}
+      />
     </div>
   );
 }
